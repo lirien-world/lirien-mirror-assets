@@ -133,7 +133,8 @@ This space is yours.
     let shimmerPhrases = [];
 
     async function loadPhrases() {
-      const res = await fetch('shimmer_phrases.json');
+    const res = await fetch('https://raw.githubusercontent.com/lirien-world/lirien-mirror-assets/main/shimmer_phrases.json');
+
       shimmerPhrases = await res.json();
     }
 
