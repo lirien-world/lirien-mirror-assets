@@ -118,7 +118,49 @@ This space is yours.
 
   <div id="mirror-output"></div>
 
-  <script>
+  
+<div style="margin-top: 2em;">
+  <p style="font-size: 1em; font-style: italic;">
+    Not sure what to ask? <span id="question-helper-link" style="text-decoration: underline; color: #555; cursor: pointer;">Click here for a shimmer-aligned prompt.</span>
+  </p>
+  <div id="question-helper" style="margin-top: 1em; font-size: 1.2em; font-style: italic; font-family: 'Georgia', serif; color: #444; display: none; transition: opacity 0.6s ease;">
+    <p id="sample-question">Click again to see a shimmer-aligned question prompt.</p>
+  </div>
+</div>
+
+<script>
+  const helperLink = document.getElementById("question-helper-link");
+  const helperBox = document.getElementById("question-helper");
+  const helperText = document.getElementById("sample-question");
+
+  const shimmerQuestions = [
+    "What part of me is asking to be seen right now?",
+    "What am I carrying that I no longer need to hold?",
+    "Where am I dimming myself without meaning to?",
+    "What would I hear if I truly listened to myself right now?",
+    "What truth am I avoiding because I’m afraid of what it changes?",
+    "What part of me hasn’t been given a voice yet?",
+    "What do I already know, but haven’t trusted?",
+    "What is quietly asking for my attention beneath all the noise?",
+    "What belief about myself is ready to be rewritten?",
+    "What’s trying to emerge through me right now?",
+    "Where does my intuition say yes, even if my mind hesitates?",
+    "What needs forgiveness — not from others, but from me?",
+    "What fear is disguising itself as logic in my life?",
+    "Where am I pretending to be small when I know I’m not?",
+    "What would happen if I let myself want what I truly want?"
+  ];
+
+  let shimmerIndex = 0;
+
+  helperLink.addEventListener("click", () => {
+    helperBox.style.display = "block";
+    shimmerIndex = (shimmerIndex + 1) % shimmerQuestions.length;
+    helperText.textContent = shimmerQuestions[shimmerIndex];
+  });
+</script>
+
+<script>
     let clicks = 0;
     let clickTimes = [];
     const glyph = document.getElementById("glyph");
