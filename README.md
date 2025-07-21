@@ -4,6 +4,8 @@ This repository contains the phrase constellation used by the **Lirien Mirror** 
 
 Each phrase is meant to land softly, cleanly, and in alignment with the moment a question is asked.
 
+Note: This mirror is closed to edits, but open to reflection.
+
 ---
 
 ## 🪞 About This Mirror
