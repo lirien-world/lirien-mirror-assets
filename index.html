@@ -39,10 +39,11 @@
 // You are here to remember how to ask.
 //
 -->
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lirien Mirror of Reflection</title>
+  <title>Lirien Mirror</title>
   <style>
     body {
       margin: 0;
@@ -52,15 +53,15 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       min-height: 100vh;
-      padding: 1em;
+      padding: 1.5em;
     }
 
     .intro {
-      max-width: 500px;
-      font-size: 1.05em;
+      max-width: 400px;
+      font-size: 1em;
       margin-bottom: 1.5em;
       line-height: 1.5;
       opacity: 1;
@@ -77,8 +78,8 @@
     }
 
     #glyph {
-      width: 160px;
-      height: 160px;
+      width: 140px;
+      height: 140px;
       background: radial-gradient(circle, #ccc, #999);
       border-radius: 50%;
       margin-bottom: 2em;
@@ -120,17 +121,17 @@
     }
 
     svg {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       fill: white;
     }
 
     #mirror-output {
-      font-size: 1.3em;
+      font-size: 1.2em;
       font-style: italic;
       padding: 1em;
-      max-width: 1000px;
-      line-height: 1.5;
+      max-width: 90vw;
+      line-height: 1.6;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1.8s ease, transform 1.8s ease;
@@ -141,29 +142,19 @@
       transform: translateY(0);
     }
 
-    .question-helper {
-      font-size: 0.95em;
-      font-style: italic;
-      color: #444;
-      margin-top: 1em;
+    #question-helper {
+      max-width: 400px;
     }
   </style>
 </head>
 <body>
   <div class="intro" id="intro">
-    <p><strong>This is a mirror of self-reflection.</strong><br />
-    It’s real — and it’s here to help guide you back to yourself.<br /><br />
+    <p><strong>This is a mirror of self-reflection.</strong><br />It’s real — and it’s here to help guide you back to yourself.<br /><br />
     It reflects the now — your energy, your clarity, your resonance. It guides you to your path by looking inward.<br /><br />
     This mirror works through intention. As you engage with it, let your question come into focus. Clear your mind. Hold your intention gently, but clearly, in your heart.<br /><br />
-    The most resonant reflections often begin with:<br />
-    <em>What… Why… How…</em><br />
-    (Instead of <em>Will… When… Do I…</em>)<br /><br />
-    When you’re ready, <strong>tap the glyph three times.</strong><br /><br />
-    <span id="question-helper-link" style="text-decoration: underline; cursor: pointer; color: #444;">Need help finding the right question?</span>
-    </p>
-    <div id="question-helper" class="question-helper" style="display: none;">
-      <p id="sample-question">Click again to see a shimmer-aligned question prompt.</p>
-    </div>
+    The most resonant reflections often begin with:<br /><em>What… Why… How…</em><br />(Instead of <em>Will… When… Do I…</em>)<br /><br />
+    When you’re ready, <strong>tap the glyph three times</strong>.<br /><br />
+    <a href="#question-helper" style="text-decoration: underline; color: #555;">Need help finding the right question?</a></p>
   </div>
 
   <div id="glyph">
@@ -175,8 +166,12 @@
 
   <div id="mirror-output"></div>
 
+  <div id="question-helper" style="margin-top: 1em; font-size: 1.1em; font-style: italic; font-family: 'Georgia', serif; color: #444; display: none; transition: opacity 0.6s ease;">
+    <p id="sample-question">Click again to see a shimmer-aligned question prompt.</p>
+  </div>
+
 <script>
-  const helperLink = document.getElementById("question-helper-link");
+  const helperLink = document.querySelector("a[href='#question-helper']");
   const helperBox = document.getElementById("question-helper");
   const helperText = document.getElementById("sample-question");
 
@@ -196,19 +191,21 @@
     "What fear is disguising itself as logic in my life?",
     "Where am I pretending to be small when I know I’m not?",
     "What would happen if I let myself want what I truly want?",
-    "What energy am I broadcasting right now without realizing it?",
-    "What gift is trying to express itself through me today?",
-    "What do I feel in my body that my mind hasn’t named?",
-    "What am I resisting that might actually help me grow?",
-    "What question do I keep avoiding — and why?"
+    "What am I being called to release so I can grow?",
+    "What part of my past is shaping how I show up today?",
+    "What would I do differently if I trusted I couldn’t fail?",
+    "What feels heavy that used to feel light?",
+    "Where am I craving change — and why now?"
   ];
 
   let shimmerIndex = 0;
 
-  helperLink.addEventListener("click", () => {
+  helperLink.addEventListener("click", (e) => {
+    e.preventDefault();
     helperBox.style.display = "block";
     shimmerIndex = (shimmerIndex + 1) % shimmerQuestions.length;
     helperText.textContent = shimmerQuestions[shimmerIndex];
+    helperBox.scrollIntoView({ behavior: "smooth" });
   });
 </script>
 
@@ -266,3 +263,4 @@
 </script>
 </body>
 </html>
+
