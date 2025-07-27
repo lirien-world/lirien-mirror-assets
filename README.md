@@ -71,3 +71,7 @@ in collaboration with **Orion**
 🪞 https://lirien.world
 
 For sacred use. Always.
+
+---
+## 🛡️ Licensed under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+See LICENSE for full terms.
